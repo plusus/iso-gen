@@ -1,0 +1,7 @@
+This is a list of packages our script needs to build the iso
+
+xorriso
+lynx
+libdpkg-perl
+tofrodos
+mtools

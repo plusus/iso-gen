@@ -1,0 +1,29 @@
+Here is a small list of the folders in the repo with important files and small descriptions.
+
+autoinstall/
+    contains preseed file for automated installation and bootloader for usb installation.
+    installiso.sh 
+        takes as arguments the drive to copy to and the iso to copy. be sure you have the right device before using. needs root.
+debian-cd/
+    contains the official debian-cd repo. they are the official DVD creation scripts of the debian team.
+        debian-cd/CONF.sh
+            the configuration file for the debian-cd generation scripts. this is were all paths and hooks are defined.
+            NOTE: the only path that is not relative to this repo is the mirror path.
+        debian-cd/buildcustom.sh
+            generates a run with the Debian-plus-us task. takes the CONF file used as its only parameter.
+        debian-cd/tasks/jessie/plus-us-packages
+            list of packages to include.
+hooks/
+    contains all hooks called during the DVD generation and during the debian installer process.
+        base_include
+            extra packages to install by debootstrap during installation.
+        base_exclude
+            idem, but excluding.
+        preseedcp.sh
+            copies the preseed file autoinstall/preseed.cfg  to the iso during the iso build process.
+output/
+    where the shiny new isos are created.
+tmp/
+    temporary directories needed by debian-cd for the build process
+        tmp/TDIR/jessie/CD1
+            the CD structure before creating the iso. hooks should modify things here before xorriso is called to build the iso.
